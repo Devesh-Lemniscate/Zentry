@@ -1,11 +1,11 @@
+import About from "./components/About"
 import Hero from "./components/Hero"
 
 const App = () => {
   return (
-    <div className="relative min-w-screen w-screen overflow-x-hidden bg-gray-900">
+    <div className="relative min-w-screen w-screen overflow-x-hidden bg-sky-400">
       <Hero />
-      
-      <section className="z-0 min-h-screen bg-blue-500"></section>
+      <About/>
     </div>
 )
 }
