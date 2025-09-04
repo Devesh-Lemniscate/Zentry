@@ -57,6 +57,11 @@
   font-display: swap;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for navbar height */
+}
+
 body {
   width: 100dvw;
   overflow-x: hidden;
@@ -65,6 +70,19 @@ body {
 }
 
 @layer utilities {
+  /* Logo styling for circular appearance */
+  .logo-circular {
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .logo-circular:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+  }
+
   /* Fix for Tailwind v4.0:
      Manually define the properties since `border-white/20` is not a valid
      class for `@apply` in v4.x's new engine.
@@ -89,6 +107,9 @@ body {
     cursor: pointer;
     margin-inline-start: 2.5rem; /* This is the CSS equivalent of ms-10 */
     font-family: "general", sans-serif; /* This is the CSS equivalent of font-general */
+    background: none;
+    border: none;
+    transition: all 0.3s ease;
   }
 
   .nav-hover-btn::after {
@@ -236,7 +257,7 @@ body {
 
   .animated-word {
     font-family: "Zentry", sans-serif;
-    font-weight: 900;
+    font-weight: 600;
     opacity: 0;
     transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
     transform-origin: 50% 50% -150px !important;
@@ -273,7 +294,7 @@ body {
     font-family: "Zentry", sans-serif;
     font-size: 2.25rem; /* text-4xl */
     line-height: 2.5rem;
-    font-weight: 900;
+    font-weight: 200;
   }
   @media (min-width: 768px) {
     .bento-title {
