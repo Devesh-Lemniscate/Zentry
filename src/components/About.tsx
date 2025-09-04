@@ -30,19 +30,19 @@ const About = () => {
     <div id="about" className="min-h-screen w-screen">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <p className="font-general text-sm uppercase md:text-[10px]">
-          Welcome to Zentry
+          About Devesh Tiwari
         </p>
           
         <AnimateTitle 
-          title="Disc<b>o</b>ver the world's l<b>a</b>rgest shared adventure"
+          title="Passionate <b>F</b>ull Stack Developer with a l<b>o</b>ve for innovation"
           containerClass="mt-5 text-9xl !text-black text-center"
         /> 
         
         <div className="about-subtext">
-          <p>The Game of Games begins—your life, now an epic MMORPG</p>
+          <p>Currently pursuing B.Tech in Computer Science and Engineering</p>
           <p className="text-gray-500">
-            Zentry unites every player from countless games and platforms, both
-            digital and physical, into a unified Play Economy
+            Experienced in Python, Machine Learning, JavaScript, React, Node.js, and modern web technologies. 
+            Always eager to learn and create impactful solutions.
           </p>
         </div>
       </div>
@@ -50,7 +50,7 @@ const About = () => {
       <div className="h-dvh w-screen" id="clip">
         <div className="mask-clip-path about-image">
           <img
-            src="img/about.webp"
+            src={import.meta.env.VITE_ABOUT_IMAGE_URL}
             alt="Background"
             className="absolute left-0 top-0 size-full object-cover"
           />

@@ -1,69 +1,89 @@
-# React + TypeScript + Vite
+# Devesh Tiwari - Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive portfolio website built with React, TypeScript, and cutting-edge web technologies. Features stunning animations, responsive design, and showcases my skills and projects as a Full Stack Developer.
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Hero Section** - Dynamic video backgrounds with smooth transitions
+- **Animated Sections** - GSAP-powered animations and scroll-triggered effects  
+- **Skills Showcase** - Interactive skill cards with hover effects
+- **Project Gallery** - Featured projects with live demos and GitHub links
+- **Experience Timeline** - Professional journey and educational background
+- **Responsive Design** - Optimized for all devices and screen sizes
+- **TypeScript** - Full type safety throughout the application
+- **Modern UI** - Clean, professional design with smooth interactions
 
-## Expanding the ESLint configuration
+## 🚀 Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React, TypeScript, Vite
+- **Styling**: Tailwind CSS v4
+- **Animations**: GSAP, ScrollTrigger
+- **Icons**: React Icons
+- **Build Tool**: Vite
+- **Linting**: ESLint with TypeScript support
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📋 Sections
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. **Hero** - Introduction with animated video background
+2. **About** - Personal introduction and background
+3. **Skills** - Technical expertise with interactive cards
+4. **Experience** - Educational background and professional journey
+5. **Projects** - Featured work with live demos
+6. **Contact** - Get in touch section
+7. **Footer** - Social links and copyright
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Getting Started
+
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env file with your personal information and URLs
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔧 Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the root directory using the `.env.example` template. Fill in your personal information:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+# Personal Information
+VITE_FULL_NAME="Your Full Name"
+VITE_EMAIL="your.email@domain.com"
+VITE_PORTFOLIO_URL="https://your-portfolio.com"
+
+# Social Media Links
+VITE_GITHUB_PROFILE="https://github.com/yourusername"
+VITE_LINKEDIN_PROFILE="https://linkedin.com/in/yourusername"
+VITE_TWITTER_PROFILE="https://twitter.com/yourusername"
+VITE_MEDIUM_PROFILE="https://medium.com/@yourusername"
+
+# Resume/CV
+VITE_RESUME_URL="/path-to-your-resume.pdf"
+
+# Project Links (add your actual project URLs)
+VITE_DRIPCHAT_GITHUB="https://github.com/yourusername/dripchat"
+VITE_DRIPCHAT_LIVE="https://dripchat-live-url.com"
+# ... add more project URLs as needed
 ```
+
+## 📱 Live Demo
+
+Visit the live portfolio: [Your Portfolio URL]
+
+## 📧 Contact
+
+- **Email**: deveshtiwari.codes@gmail.com
+- **GitHub**: [Devesh-Lemniscate](https://github.com/Devesh-Lemniscate)
+- **LinkedIn**: [devesh-tiwari](https://linkedin.com/in/devesh-tiwari)
+
+---
+
+Built with ❤️ by Devesh Tiwari

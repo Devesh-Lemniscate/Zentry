@@ -5,7 +5,7 @@ import { useWindowScroll } from "react-use";
 
 import Button from "./Button";
 
-const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+const navItems = ["About", "Skills", "Experience", "Projects", "Contact"];
 
 const NavBar = () => {
   // State for toggling audio and visual indicator
@@ -13,26 +13,44 @@ const NavBar = () => {
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
 
   // Refs for audio and navigation container
-  const audioElementRef = useRef(null);
-  const navContainerRef = useRef(null);
+  const audioElementRef = useRef<HTMLAudioElement>(null);
+  const navContainerRef = useRef<HTMLDivElement>(null);
 
   const {y: currentScrollY} = useWindowScroll();
 
-
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  // Smooth scroll function
+  const smoothScrollTo = (targetId: string) => {
+    const element = document.getElementById(targetId.toLowerCase());
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Offset for navbar height
+      
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
 
 
   useEffect(()=>{
     if(currentScrollY===0){
       setIsNavVisible(true);
-      navContainerRef.current.classList.remove('floating-nav');
+      if (navContainerRef.current) {
+        navContainerRef.current.classList.remove('floating-nav');
+      }
     }else if(currentScrollY > lastScrollY){
       setIsNavVisible(false);
-      navContainerRef.current.classList.add('floating-nav');
+      if (navContainerRef.current) {
+        navContainerRef.current.classList.add('floating-nav');
+      }
     }else if(currentScrollY < lastScrollY){
       setIsNavVisible(true);
-      navContainerRef.current.classList.add('floating-nav');
+      if (navContainerRef.current) {
+        navContainerRef.current.classList.add('floating-nav');
+      }
     }
 
     setLastScrollY(currentScrollY);
@@ -54,9 +72,13 @@ const NavBar = () => {
     
   useEffect(()=>{
     if(isAudioPlaying){
-      audioElementRef.current.play();
-    }else{
-
+      if (audioElementRef.current) {
+        audioElementRef.current.play();
+      }
+    } else {
+      if (audioElementRef.current) {
+        audioElementRef.current.pause();
+      }
     }
   }, [isAudioPlaying])
 
@@ -67,29 +89,31 @@ const NavBar = () => {
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
-          {/* Logo and Product button */}
           <div className="flex items-center gap-7">
-            <img src="/img/logo.png" alt="logo" className="w-10" />
+            <img src={import.meta.env.VITE_LOGO_URL} alt="logo" className="w-10 h-10 logo-circular object-cover" />
 
             <Button
-              id="product-button"
-              title="Products"
+              id="resume-button"
+              title="Resume"
               rightIcon={<TiLocationArrow />}
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
+              onClick={() => window.open(import.meta.env.VITE_RESUME_URL, '_blank')}
             />
           </div>
 
-          {/* Navigation Links and Audio Button */}
           <div className="flex h-full items-center">
             <div className="hidden md:block">
               {navItems.map((item, index) => (
-                <a
+                <button
                   key={index}
-                  href={`#${item.toLowerCase()}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    smoothScrollTo(item);
+                  }}
                   className="nav-hover-btn"
                 >
                   {item}
-                </a>
+                </button>
               ))}
             </div>
 
@@ -100,7 +124,7 @@ const NavBar = () => {
               <audio
                 ref={audioElementRef}
                 className="hidden"
-                src="/audio/loop.mp3"
+                src={import.meta.env.VITE_AUDIO_LOOP_URL}
                 loop
               />
               {[1, 2, 3, 4].map((bar) => (

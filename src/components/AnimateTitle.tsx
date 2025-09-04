@@ -4,8 +4,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AnimatedTitle = ({ title, containerClass }) => {
-  const containerRef = useRef(null);
+interface AnimatedTitleProps {
+  title: string;
+  containerClass?: string;
+}
+
+const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
